@@ -136,7 +136,9 @@ export default function GameContainer() {
             {gameState === 'START' && (
                 <div className={styles.questionBox}>
                     <h1 className={styles.questionText} style={{ fontSize: '3rem' }}>Start Cooking!</h1>
-                    <p style={{ fontSize: '1.5rem', marginBottom: '20px' }}>Help Yoda Chef collect all ingredients.</p>
+                    <p style={{ fontSize: '1.5rem', marginBottom: '20px', color: '#333333', fontWeight: 'bold' }}>
+                        Test kemampuan matematikamu untuk membantu Chef Yoda memasak ayam goreng
+                    </p>
                     <button className={styles.restartBtn} onClick={startGame}>Start Game ▶</button>
                 </div>
             )}
