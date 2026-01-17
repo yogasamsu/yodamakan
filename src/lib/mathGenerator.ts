@@ -28,25 +28,19 @@ export function generateQuestion(difficulty: Difficulty): Question {
             };
 
         case 'hard':
-            // Mixed: either larger 2 operands or 3 operands
-            if (Math.random() > 0.5) {
-                // 3 operands, sum < 30
-                a = Math.floor(Math.random() * 10) + 1;
-                b = Math.floor(Math.random() * 10) + 1;
-                c = Math.floor(Math.random() * 10) + 1;
-                return {
-                    text: `${a} + ${b} + ${c}`,
-                    answer: a + b + c
-                };
-            } else {
-                // 2 operands, sum < 60
-                a = Math.floor(Math.random() * 30) + 10;
-                b = Math.floor(Math.random() * 30) + 10;
-                return {
-                    text: `${a} + ${b}`,
-                    answer: a + b
-                };
-            }
+            // Rule: 1 single digit (1-9) + 2 teen numbers (11-19)
+            // Example: 5 + 15 + 12
+            const single = Math.floor(Math.random() * 9) + 1; // 1-9
+            const teen1 = Math.floor(Math.random() * 9) + 11; // 11-19
+            const teen2 = Math.floor(Math.random() * 9) + 11; // 11-19
+
+            // Randomize order for variety
+            const nums = [single, teen1, teen2].sort(() => Math.random() - 0.5);
+
+            return {
+                text: `${nums[0]} + ${nums[1]} + ${nums[2]}`,
+                answer: single + teen1 + teen2
+            };
 
         default:
             return { text: '1 + 1', answer: 2 };
