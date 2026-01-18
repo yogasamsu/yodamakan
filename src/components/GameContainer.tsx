@@ -5,21 +5,40 @@ import styles from '@/styles/game.module.css';
 import { GameState } from '@/types/game';
 import { LEVELS, FINAL_REWARD, GAMES } from '@/lib/gameConfig';
 import { generateQuestion, Question } from '@/lib/mathGenerator';
+import { useRouter } from 'next/navigation';
 
-export default function GameContainer() {
-    const [selectedGame, setSelectedGame] = useState<typeof GAMES[0] | null>(null);
+interface GameContainerProps {
+    gameId: string;
+}
+
+export default function GameContainer({ gameId }: GameContainerProps) {
+    const router = useRouter();
+    const selectedGame = GAMES.find(g => g.id === gameId);
+
+    // If gameId is invalid, we will trust the parent component (page.tsx) to handle 404 or redirect,
+    // but typescript needs assurance.
+    const currentLevels = selectedGame ? selectedGame.levels : LEVELS;
+
     const [gameState, setGameState] = useState<GameState>('START');
     const [currentLevelIndex, setCurrentLevelIndex] = useState(0);
     const [currentQuestion, setCurrentQuestion] = useState<Question | null>(null);
     const [userAnswer, setUserAnswer] = useState('');
-    const [timeLeft, setTimeLeft] = useState(15);
+    const [timeLeft, setTimeLeft] = useState(30); // Initialize to 30s directly
     const [collectedIngredients, setCollectedIngredients] = useState<string[]>([]);
 
     const timerRef = useRef<NodeJS.Timeout | null>(null);
-
-    // Helper to get current level config
-    const currentLevels = selectedGame ? selectedGame.levels : LEVELS;
     const currentLevelConfig = currentLevels[currentLevelIndex];
+
+    // Reset state when gameId changes (though usually page unmounts/remounts)
+    useEffect(() => {
+        if (!selectedGame) {
+            router.push('/');
+            return;
+        }
+        // Initialize timer based on first level duration just in case
+        setTimeLeft(selectedGame.levels[0].duration);
+    }, [selectedGame, router]);
+
 
     // Start Game
     const startGame = () => {
@@ -93,10 +112,8 @@ export default function GameContainer() {
     };
 
     const returnToMenu = () => {
-        setGameState('START');
-        setSelectedGame(null);
-        setCollectedIngredients([]);
         if (timerRef.current) clearInterval(timerRef.current);
+        router.push('/');
     }
 
     // Cleanup on unmount
@@ -112,31 +129,7 @@ export default function GameContainer() {
     const yodaPosition = 5 + (currentLevelIndex * (85 / currentLevels.length));
 
 
-    // If no game selected, show selection screen
-    if (!selectedGame) {
-        return (
-            <div className={styles.container}>
-                <div className={styles.questionBox}>
-                    <h1 className={styles.questionText} style={{ fontSize: '3rem', marginBottom: '1rem' }}>Pilih Menu Masak</h1>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', width: '100%', alignItems: 'center' }}>
-                        {GAMES.map((game) => (
-                            <button
-                                key={game.id}
-                                className={styles.restartBtn}
-                                onClick={() => setSelectedGame(game)}
-                                style={{ width: '80%', maxWidth: '400px', padding: '20px' }}
-                            >
-                                <div style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>{game.name}</div>
-                                <div style={{ fontSize: '1rem', opacity: 0.9 }}>{game.description}</div>
-                            </button>
-                        ))}
-                    </div>
-                </div>
-                {/* Floor */}
-                <div className={styles.floor}></div>
-            </div>
-        )
-    }
+    if (!selectedGame) return null; // Should ideally show loading or redirect
 
     return (
         <div className={styles.container}>
@@ -195,13 +188,7 @@ export default function GameContainer() {
                         Test kemampuan matematikamu untuk membantu Chef Yoda memasak {selectedGame.finalReward.name}
                     </p>
                     <button className={styles.restartBtn} onClick={startGame}>Start Game ▶</button>
-                    <button
-                        className={styles.restartBtn}
-                        onClick={() => setSelectedGame(null)}
-                        style={{ background: '#777', marginTop: '10px' }}
-                    >
-                        Pilih Menu Lain
-                    </button>
+                    {/* Return to Menu button removed from start screen as HUD has home button or browser back */}
                 </div>
             )}
 
