@@ -111,6 +111,7 @@ export default function GameContainer() {
     // Start: 5%. Each level adds approx 12% space.
     const yodaPosition = 5 + (currentLevelIndex * (85 / currentLevels.length));
 
+
     // If no game selected, show selection screen
     if (!selectedGame) {
         return (
