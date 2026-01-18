@@ -24,16 +24,16 @@ export const FINAL_REWARD: Ingredient = {
 };
 
 export const LEVELS: LevelConfig[] = [
-  { level: 1, duration: 15, difficulty: 'easy', reward: INGREDIENTS[0] },
-  { level: 2, duration: 15, difficulty: 'easy', reward: INGREDIENTS[1] },
-  { level: 3, duration: 15, difficulty: 'easy', reward: INGREDIENTS[2] }, // Added Easy
-  { level: 4, duration: 15, difficulty: 'medium', reward: INGREDIENTS[3] },
-  { level: 5, duration: 15, difficulty: 'medium', reward: INGREDIENTS[4] },
-  { level: 6, duration: 15, difficulty: 'medium', reward: INGREDIENTS[5] }, // Added Medium
-  { level: 7, duration: 15, difficulty: 'hard', reward: INGREDIENTS[6] },
-  { level: 8, duration: 15, difficulty: 'hard', reward: INGREDIENTS[7] }, // New
-  { level: 9, duration: 15, difficulty: 'hard', reward: INGREDIENTS[8] }, // New
-  { level: 10, duration: 15, difficulty: 'hard', reward: INGREDIENTS[9] }, // New
+  { level: 1, duration: 30, difficulty: 'easy', reward: INGREDIENTS[0] },
+  { level: 2, duration: 30, difficulty: 'easy', reward: INGREDIENTS[1] },
+  { level: 3, duration: 30, difficulty: 'easy', reward: INGREDIENTS[2] }, // Added Easy
+  { level: 4, duration: 30, difficulty: 'medium', reward: INGREDIENTS[3] },
+  { level: 5, duration: 30, difficulty: 'medium', reward: INGREDIENTS[4] },
+  { level: 6, duration: 30, difficulty: 'medium', reward: INGREDIENTS[5] }, // Added Medium
+  { level: 7, duration: 30, difficulty: 'hard', reward: INGREDIENTS[6] },
+  { level: 8, duration: 30, difficulty: 'hard', reward: INGREDIENTS[7] }, // New
+  { level: 9, duration: 30, difficulty: 'hard', reward: INGREDIENTS[8] }, // New
+  { level: 10, duration: 30, difficulty: 'hard', reward: INGREDIENTS[9] }, // New
 ];
 
 // Takoyaki Ingredients (Emojis)
@@ -75,7 +75,7 @@ export const GAMES: GameTheme[] = [
   {
     id: 'level1',
     name: 'Level 1: Masak Ayam Goreng',
-    description: 'Belajar Penjumlahan',
+    description: 'Belajar Penjumlahan (30 Detik)',
     operation: 'addition',
     levels: LEVELS,
     finalReward: FINAL_REWARD
@@ -83,7 +83,7 @@ export const GAMES: GameTheme[] = [
   {
     id: 'level2',
     name: 'Level 2: Masak Takoyaki',
-    description: 'Belajar Pengurangan',
+    description: 'Belajar Pengurangan (30 Detik)',
     operation: 'subtraction',
     levels: TAKOYAKI_LEVELS,
     finalReward: TAKOYAKI_FINAL_REWARD
