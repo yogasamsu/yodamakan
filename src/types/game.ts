@@ -11,4 +11,15 @@ export interface LevelConfig {
     reward: Ingredient;
 }
 
+export type Operation = 'addition' | 'subtraction';
+
+export interface GameTheme {
+    id: string;
+    name: string;
+    description: string;
+    operation: Operation;
+    levels: LevelConfig[];
+    finalReward: Ingredient;
+}
+
 export type GameState = 'START' | 'PLAYING' | 'WON' | 'GAME_OVER';
