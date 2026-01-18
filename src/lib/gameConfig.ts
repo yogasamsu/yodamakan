@@ -57,16 +57,16 @@ export const TAKOYAKI_FINAL_REWARD: Ingredient = {
 };
 
 export const TAKOYAKI_LEVELS: LevelConfig[] = [
-  { level: 1, duration: 15, difficulty: 'easy', reward: TAKOYAKI_INGREDIENTS[0] },
-  { level: 2, duration: 15, difficulty: 'easy', reward: TAKOYAKI_INGREDIENTS[1] },
-  { level: 3, duration: 15, difficulty: 'easy', reward: TAKOYAKI_INGREDIENTS[2] }, // Added Easy
-  { level: 4, duration: 15, difficulty: 'medium', reward: TAKOYAKI_INGREDIENTS[3] },
-  { level: 5, duration: 15, difficulty: 'medium', reward: TAKOYAKI_INGREDIENTS[4] },
-  { level: 6, duration: 15, difficulty: 'medium', reward: TAKOYAKI_INGREDIENTS[5] }, // Added Medium
-  { level: 7, duration: 15, difficulty: 'hard', reward: TAKOYAKI_INGREDIENTS[6] },
-  { level: 8, duration: 15, difficulty: 'hard', reward: TAKOYAKI_INGREDIENTS[7] }, // New
-  { level: 9, duration: 15, difficulty: 'hard', reward: TAKOYAKI_INGREDIENTS[8] }, // New
-  { level: 10, duration: 15, difficulty: 'hard', reward: TAKOYAKI_INGREDIENTS[9] }, // New
+  { level: 1, duration: 30, difficulty: 'easy', reward: TAKOYAKI_INGREDIENTS[0] },
+  { level: 2, duration: 30, difficulty: 'easy', reward: TAKOYAKI_INGREDIENTS[1] },
+  { level: 3, duration: 30, difficulty: 'easy', reward: TAKOYAKI_INGREDIENTS[2] }, // Added Easy
+  { level: 4, duration: 30, difficulty: 'medium', reward: TAKOYAKI_INGREDIENTS[3] },
+  { level: 5, duration: 30, difficulty: 'medium', reward: TAKOYAKI_INGREDIENTS[4] },
+  { level: 6, duration: 30, difficulty: 'medium', reward: TAKOYAKI_INGREDIENTS[5] }, // Added Medium
+  { level: 7, duration: 30, difficulty: 'hard', reward: TAKOYAKI_INGREDIENTS[6] },
+  { level: 8, duration: 30, difficulty: 'hard', reward: TAKOYAKI_INGREDIENTS[7] }, // New
+  { level: 9, duration: 30, difficulty: 'hard', reward: TAKOYAKI_INGREDIENTS[8] }, // New
+  { level: 10, duration: 30, difficulty: 'hard', reward: TAKOYAKI_INGREDIENTS[9] }, // New
 ];
 
 import { GameTheme } from '@/types/game';
