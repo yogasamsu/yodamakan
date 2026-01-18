@@ -2,6 +2,8 @@
 .container {
   width: 100vw;
   height: 100vh;
+  /* fallback */
+  height: 100dvh;
   overflow: hidden;
   background: linear-gradient(180deg, #87CEEB 0%, #E0F7FA 100%);
   position: relative;
@@ -10,13 +12,13 @@
 
 .hud {
   position: absolute;
-  top: 20px;
-  left: 20px;
-  right: 20px;
+  top: 10px;
+  left: 10px;
+  right: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px;
+  padding: 10px;
   background: rgba(255, 255, 255, 0.95);
   border-radius: 15px;
   border: 4px solid #5D4037;
@@ -25,7 +27,7 @@
 }
 
 .timer {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 800;
   color: #D32F2F;
   text-shadow: 1px 1px 0 #fff;
@@ -33,19 +35,19 @@
 
 .ingredientBar {
   display: flex;
-  gap: 15px;
+  gap: 8px;
 }
 
 .ingredientSlot {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border: 3px dashed #bdc3c7;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   background: white;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   opacity: 0.5;
   transition: all 0.3s ease;
 }
@@ -77,18 +79,17 @@
 .milestoneContainer {
   position: absolute;
   bottom: 120px;
-  /* On top of floor */
   left: 0;
   width: 100%;
-  height: 100px;
+  height: 80px;
   pointer-events: none;
 }
 
 .milestone {
   position: absolute;
   bottom: 0px;
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -97,49 +98,49 @@
 }
 
 .milestoneIcon {
-  font-size: 2.5rem;
+  font-size: 2rem;
   filter: drop-shadow(2px 2px 0 rgba(0, 0, 0, 0.2));
   animation: bounce 2s infinite;
 }
 
 .milestoneLabel {
   background: #FFF;
-  padding: 2px 6px;
+  padding: 2px 4px;
   border-radius: 4px;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   font-weight: bold;
-  border: 2px solid #333;
-  margin-top: 5px;
+  border: 1px solid #333;
+  margin-top: 2px;
   white-space: nowrap;
 }
 
 /* Question Box */
 .questionBox {
   position: absolute;
-  top: 35%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: #FFFFFF;
   border: 6px solid #5D4037;
-  padding: 30px 50px;
+  padding: 20px 40px;
   border-radius: 20px;
   text-align: center;
   box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.2);
   z-index: 50;
-  min-width: 400px;
+  min-width: 350px;
 }
 
 .questionText {
-  font-size: 4rem;
-  margin-bottom: 30px;
+  font-size: 3.5rem;
+  margin-bottom: 20px;
   color: #333;
   font-weight: bold;
 }
 
 .inputInput {
-  font-size: 3rem;
-  padding: 15px;
-  width: 200px;
+  font-size: 2.5rem;
+  padding: 10px;
+  width: 180px;
   text-align: center;
   border: 4px solid #333;
   border-radius: 10px;
@@ -153,10 +154,10 @@
 .yodaContainer {
   position: absolute;
   bottom: 80px;
-  /* Adjust to stand on floor */
+  /* On floor */
   left: 10%;
-  width: 100px;
-  height: 140px;
+  width: 80px;
+  height: 120px;
   transition: left 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   z-index: 20;
   display: flex;
@@ -165,9 +166,9 @@
 }
 
 .chefHat {
-  font-size: 3rem;
+  font-size: 2.5rem;
   position: absolute;
-  top: -25px;
+  top: -20px;
   left: 50%;
   transform: translateX(-50%) rotate(-5deg);
   z-index: 22;
@@ -175,8 +176,8 @@
 }
 
 .yodaFace {
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   border: 3px solid #fff;
   background-color: #f0f0f0;
@@ -192,8 +193,8 @@
 }
 
 .chefBody {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   background: #FFF;
   border: 3px solid #333;
   border-radius: 15px;
@@ -206,10 +207,10 @@
 }
 
 .chefApron {
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   background: #D32F2F;
-  border-radius: 10px;
+  border-radius: 8px;
   border: 2px solid #333;
 }
 
@@ -233,22 +234,22 @@
 
 .gameOver h1,
 .winScreen h1 {
-  font-size: 4rem;
+  font-size: 3rem;
   margin-bottom: 10px;
   color: #ffeb3b;
   text-shadow: 2px 2px 0 #d35400;
 }
 
 .winScreen h2 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: #adff2f;
-  margin: 20px 0;
+  margin: 15px 0;
 }
 
 .restartBtn {
-  margin-top: 30px;
-  padding: 15px 40px;
-  font-size: 2rem;
+  margin-top: 20px;
+  padding: 12px 30px;
+  font-size: 1.5rem;
   font-family: inherit;
   font-weight: bold;
   background: #4CAF50;
@@ -282,77 +283,157 @@
   }
 }
 
-/* Mobile Portrait Optimizations */
+/* Mobile Adjustments (Portrait & Small Screens) */
 @media screen and (max-width: 600px) {
-  .container {
-    font-size: 14px;
-    height: 100dvh;
-    /* Use dynamic viewport height for mobile browsers */
-  }
-
   .hud {
-    padding: 10px;
-    top: 10px;
-    left: 10px;
-    right: 10px;
-    flex-wrap: wrap;
-    /* Allow wrapping if needed */
-  }
-
-  .timer {
-    font-size: 2rem;
-  }
-
-  .ingredientSlot {
-    width: 40px;
-    height: 40px;
-    font-size: 1.5rem;
+    padding: 8px;
+    flex-direction: row;
+    align-items: center;
+    top: 5px;
+    left: 5px;
+    right: 5px;
   }
 
   .ingredientBar {
-    gap: 8px;
+    gap: 5px;
+    flex: 1;
+    justify-content: flex-end;
   }
 
-  /* Position Question Box higher to avoid keyboard overlap */
-  .questionBox {
-    top: 25%;
-    transform: translate(-50%, -20%);
-    min-width: 90%;
-    padding: 20px;
+  .ingredientSlot {
+    width: 28px;
+    height: 28px;
+    font-size: 1rem;
+    border-width: 2px;
   }
 
-  .questionText {
-    font-size: 3rem;
-    margin-bottom: 20px;
+  .timer {
+    font-size: 1.5rem;
+    margin-right: 10px;
   }
 
-  .inputInput {
-    font-size: 2.5rem;
-    padding: 10px;
-    width: 150px;
-  }
-
-  /* Adjust visuals to be less obtrusive or lower down */
   .floor {
-    height: 100px;
+    height: 80px;
+    /* Reduced floor size */
   }
 
   .milestoneContainer {
-    bottom: 100px;
+    bottom: 80px;
+    height: 60px;
   }
 
+  /* Compact Question Box */
+  .questionBox {
+    position: relative;
+    /* Switch to relative flow to play nice with flexible space if needed, or keep absolute with smart positioning */
+    top: 20%;
+    /* Move up */
+    transform: translate(-50%, 0);
+    padding: 15px 20px;
+    min-width: 85%;
+    border-width: 4px;
+    margin-top: 50px;
+    /* Space from HUD */
+    margin-bottom: 20px;
+  }
+
+  .questionText {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+
+  .inputInput {
+    font-size: 2rem;
+    padding: 8px;
+    width: 120px;
+    border-width: 3px;
+  }
+
+  /* Compact Yoda */
   .yodaContainer {
-    bottom: 70px;
-    /* On floor */
-    transform: scale(0.8);
-    /* Make Yoda slightly smaller */
+    bottom: 50px;
+    /* Lower down */
+    transform: scale(0.7);
+    /* Smaller */
     transform-origin: bottom center;
+    left: 10%;
   }
 
-  /* Make buttons smaller on mobile */
-  .restartBtn {
+  .milestoneIcon {
     font-size: 1.5rem;
-    padding: 10px 30px;
-    width: 100%;
+  }
+
+  .milestoneLabel {
+    font-size: 0.6rem;
+    padding: 1px 3px;
+  }
+}
+
+/* 
+   Keyboard-open optimized state 
+   When height is small (typical when keyboard is up on mobile)
+*/
+@media screen and (max-height: 500px) {
+  .hud {
+    padding: 4px;
+    top: 0;
+    border-top: none;
+    border-radius: 0 0 15px 15px;
+  }
+
+  .timer {
+    font-size: 1.2rem;
+  }
+
+  .ingredientSlot {
+    width: 20px;
+    height: 20px;
+    font-size: 0.8rem;
+    border-width: 1px;
+  }
+
+  .questionBox {
+    margin-top: 60px;
+    /* Push down slightly from compact HUD */
+    top: 0;
+    transform: translate(-50%, 0);
+    padding: 5px 15px;
+  }
+
+  .questionText {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+  }
+
+  .inputInput {
+    font-size: 1.5rem;
+    padding: 5px;
+    width: 100px;
+  }
+
+  /* Ensure Yoda is visible but very small at the bottom */
+  .yodaContainer {
+    bottom: 10px;
+    transform: scale(0.5);
+    z-index: 60;
+    /* Above simple floor */
+  }
+
+  .floor {
+    height: 40px;
+  }
+
+  .milestoneContainer {
+    bottom: 40px;
+    height: 40px;
+  }
+
+  .milestoneIcon {
+    font-size: 1rem;
+  }
+
+  .milestoneLabel {
+    display: none;
+    /* Hide labels when super cramped */
   }
 }
